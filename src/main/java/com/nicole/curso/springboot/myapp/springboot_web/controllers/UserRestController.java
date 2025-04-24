@@ -1,28 +1,22 @@
 package com.nicole.curso.springboot.myapp.springboot_web.controllers;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController // Convierte el método handler en un método handler Rest
 public class UserRestController {
     
-    @GetMapping("/details")
-    public String details(Model model){
-        model.addAttribute("title", "Hola Mundo desde Spring Boot");
-        model.addAttribute("name", "Nicole");
-        model.addAttribute("lastname", "Alvarado");
-        return "details";
+    @GetMapping("/details2")
+    public Map<String,Object> details(){
+        Map<String,Object> body = new HashMap<>();
+
+        body.put("title", "Hola Mundo desde Spring Boot");
+        body.put("name", "Nicole");
+        body.put("lastname", "Alvarado");
+        return body;
     }
-    
-    // Modo con Map
-    /*@GetMapping("/details")
-    public String details(Map<String, Object> model){
-        model.put("title", "Hola Mundo desde Spring Boot");
-        model.put("name", "Nicole");
-        model.put("lastname", "Alvarado");
-        return "details";
-    }*/
+
 }

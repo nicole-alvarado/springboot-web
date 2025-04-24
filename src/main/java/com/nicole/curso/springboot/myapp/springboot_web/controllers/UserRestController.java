@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nicole.curso.springboot.myapp.springboot_web.models.User;
+
 // Esto es API Rest
 @RestController // Convierte el método handler en un método handler Rest
 @RequestMapping("/api")
@@ -14,11 +16,11 @@ public class UserRestController {
     
     @GetMapping("/details")
     public Map<String,Object> details(){
+        User user = new User("Nicole", "Alvarado");
         Map<String,Object> body = new HashMap<>();
 
         body.put("title", "Hola Mundo desde Spring Boot");
-        body.put("name", "Nicole");
-        body.put("lastname", "Alvarado");
+        body.put("user", user);
         return body;
     }
 

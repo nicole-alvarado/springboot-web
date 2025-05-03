@@ -1,6 +1,8 @@
 package com.nicole.curso.springboot.myapp.springboot_web.controllers;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +42,7 @@ public class UserRestController {
         User user2 = new User("Denis", "Rodriguez");
         User user3 = new User("Elise",  "Alvarado");
 
+        //List<User> users = Arrays.asList(user1, user2, user3); // Es lo mismo que new ArrayList
         List<User> users = new ArrayList<>();
         users.add(user1);
         users.add(user2);

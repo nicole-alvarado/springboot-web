@@ -1,8 +1,8 @@
 package com.nicole.curso.springboot.myapp.springboot_web.controllers;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nicole.curso.springboot.myapp.springboot_web.models.User;
 import com.nicole.curso.springboot.myapp.springboot_web.models.dto.UserDTO;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 
 // Esto es API Rest

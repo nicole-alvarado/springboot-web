@@ -6,14 +6,23 @@ public class User {
     private String secondName;
     private String lastname;
     private String email;
-    
+
     public User(String name, String secondName, String lastname) {
         this.name = name;
         this.secondName = secondName;
         this.lastname = lastname;
     }
 
-    // Constructor sin segundo nombre
+    
+    public User(String name, String secondName, String lastname, String email) {
+        this.name = name;
+        this.secondName = secondName;
+        this.lastname = lastname;
+        this.email = email;
+    }
+
+
+    // Constructor sin segundo nombre ni email
     public User(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;

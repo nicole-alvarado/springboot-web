@@ -1,6 +1,8 @@
 package com.nicole.curso.springboot.myapp.springboot_web.controllers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nicole.curso.springboot.myapp.springboot_web.models.User;
 import com.nicole.curso.springboot.myapp.springboot_web.models.dto.UserDTO;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 // Esto es API Rest
 @RestController // Convierte el método handler en un método handler Rest
@@ -27,6 +31,21 @@ public class UserRestController {
         userDTO.setTitle("Hola Mundo desde Spring Boot");
         
         return userDTO; // estamos pasando datos para compartir con el frontend
+    }
+
+    
+    @GetMapping("/list-users")
+    public List<User> getUsers(){
+        User user1 = new User("Nicole", "Gianella", "Alvarado");
+        User user2 = new User("Denis", "Rodriguez");
+        User user3 = new User("Elise",  "Alvarado");
+
+        List<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+
+        return users;
     }
 
     @GetMapping("/details-map")

@@ -21,7 +21,7 @@ public class UserRestController {
 
         body.put("title", "Hola Mundo desde Spring Boot");
         body.put("user", user);
-        return body;
+        return body; // Si devuelvo User, devolverá solo el objeto User
     }
 
 }

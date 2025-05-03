@@ -14,7 +14,7 @@ public class UserController {
         User user = new User("Nicole", "Alvarado");
         model.addAttribute("title", "Hola Mundo desde Spring Boot");
         model.addAttribute("user", user);
-        return "details";
+        return "details"; // Nombre de la vista que esta template
     }
     
     // Modo con Map

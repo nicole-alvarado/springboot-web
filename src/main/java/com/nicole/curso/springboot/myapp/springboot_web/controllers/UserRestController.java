@@ -21,8 +21,9 @@ public class UserRestController {
 
         User user = new User("Nicole", "Gianella", "Alvarado");
         
-        userDTO.setName(user.getName().concat(" ").concat(user.getSecondName())); // Mostrar los dos nombres
-        userDTO.setLastname(user.getLastname());
+        // userDTO.setName(user.getName().concat(" ").concat(user.getSecondName())); // Mostrar los dos nombres
+        // userDTO.setLastname(user.getLastname());
+        userDTO.setUser(user);
         userDTO.setTitle("Hola Mundo desde Spring Boot");
         
         return userDTO; // estamos pasando datos para compartir con el frontend
@@ -30,7 +31,7 @@ public class UserRestController {
 
     @GetMapping("/details-map")
     public Map<String,Object> detailsMap(){
-        User user = new User("Nicole", "Alvarado");
+        User user = new User("Nicole", "Gianella", "Alvarado");
         Map<String,Object> body = new HashMap<>();
 
         body.put("title", "Hola Mundo desde Spring Boot");

@@ -12,6 +12,12 @@ public class User {
         this.lastname = lastname;
     }
 
+    // Constructor sin segundo nombre
+    public User(String name, String lastname) {
+        this.name = name;
+        this.lastname = lastname;
+    }
+
     public String getName() {
         return name;
     }

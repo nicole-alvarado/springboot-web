@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nicole.curso.springboot.myapp.springboot_web.models.User;
+import com.nicole.curso.springboot.myapp.springboot_web.models.dto.UserDTO;
 
 // Esto es API Rest
 @RestController // Convierte el método handler en un método handler Rest
@@ -15,7 +16,18 @@ import com.nicole.curso.springboot.myapp.springboot_web.models.User;
 public class UserRestController {
     
     @GetMapping("/details")
-    public Map<String,Object> details(){
+    public UserDTO details(){
+        UserDTO userDTO = new UserDTO();
+
+        User user = new User("Nicole", "Alvarado");
+        userDTO.setUser(user);
+        userDTO.setTitle("Hola Mundo desde Spring Boot");
+        
+        return userDTO; // estamos pasando datos para compartir con el frontend
+    }
+
+    @GetMapping("/details-map")
+    public Map<String,Object> detailsMap(){
         User user = new User("Nicole", "Alvarado");
         Map<String,Object> body = new HashMap<>();
 

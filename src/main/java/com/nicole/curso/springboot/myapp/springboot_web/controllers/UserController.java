@@ -11,7 +11,7 @@ public class UserController {
     
     @GetMapping("/details")
     public String details(Model model){
-        User user = new User("Nicole", "Alvarado");
+        User user = new User("Nicole", "Gianella", "Alvarado");
         model.addAttribute("title", "Hola Mundo desde Spring Boot");
         model.addAttribute("user", user);
         return "details"; // Nombre de la vista que esta template

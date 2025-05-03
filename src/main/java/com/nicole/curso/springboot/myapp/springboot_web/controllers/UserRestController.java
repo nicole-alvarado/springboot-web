@@ -19,8 +19,10 @@ public class UserRestController {
     public UserDTO details(){
         UserDTO userDTO = new UserDTO();
 
-        User user = new User("Nicole", "Alvarado");
-        userDTO.setUser(user);
+        User user = new User("Nicole", "Gianella", "Alvarado");
+        
+        userDTO.setName(user.getName().concat(" ").concat(user.getSecondName())); // Mostrar los dos nombres
+        userDTO.setLastname(user.getLastname());
         userDTO.setTitle("Hola Mundo desde Spring Boot");
         
         return userDTO; // estamos pasando datos para compartir con el frontend

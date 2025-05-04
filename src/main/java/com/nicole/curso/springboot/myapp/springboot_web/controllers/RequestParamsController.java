@@ -21,5 +21,15 @@ public class RequestParamsController {
         param.setMessage(message!=null ? message : "Holi"); // Si es null mostrar Holi
         return param;
     }
-    
+ 
+    @GetMapping("/bar") // Ejemplo: http://localhost:8090/api/params/bar?text=Hola&code=1234
+    public ParamDTO getBar(@RequestParam String text, @RequestParam Integer code){
+        
+        ParamDTO params = new ParamDTO();
+        params.setMessage(text);
+        params.setCode(code);
+
+        return params;
+
+    }
 }

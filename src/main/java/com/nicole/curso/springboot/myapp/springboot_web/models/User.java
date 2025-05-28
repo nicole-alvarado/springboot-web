@@ -7,6 +7,10 @@ public class User {
     private String lastname;
     private String email;
 
+    // Necesito un constructor vacío para que se pueblen los datos automaticamente al hacer un POST
+    public User(){
+    }
+
     public User(String name, String secondName, String lastname) {
         this.name = name;
         this.secondName = secondName;

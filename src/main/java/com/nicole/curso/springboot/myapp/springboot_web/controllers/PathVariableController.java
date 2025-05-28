@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +52,9 @@ public class PathVariableController {
     @Value("#{${config.valuesMap}.price}")
     private Integer price;
 
+    @Autowired
+    private Environment environment;
+
     @GetMapping("/baz/{message}") // Ruta variable, el nombre message en la ruta y parámetros si o si es obligatorio que sean iguales
     public ParamDTO getBaz(@PathVariable String message){
         ParamDTO param = new ParamDTO();
@@ -80,6 +85,8 @@ public class PathVariableController {
         json.put("username", username);
         json.put("code", code);
         json.put("message", message);
+        json.put("message2", environment.getProperty("config.message")); // Usando environment
+        json.put("code2", environment.getProperty("config.code")); // Usando environment
         json.put("listOfValues", listOfValues);
         json.put("newListOfValues", newListOfValues);
         json.put("stringValues", stringValues);

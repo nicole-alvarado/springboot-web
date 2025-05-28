@@ -81,12 +81,14 @@ public class PathVariableController {
     // Los value se pueden agregar como argumentos
     @GetMapping("/values")
     public Map<String, Object> values(@Value("${config.message}") String message){
+        Long code2 = environment.getProperty("config.code", Long.class); // Convertir el valor a un tipo numérico
         Map<String, Object> json = new HashMap<>();
         json.put("username", username);
         json.put("code", code);
         json.put("message", message);
         json.put("message2", environment.getProperty("config.message")); // Usando environment
-        json.put("code2", Integer.valueOf(environment.getProperty("config.code"))); // Usando environment
+        json.put("code2", code2); 
+        //json.put("code2", Integer.valueOf(environment.getProperty("config.code")));
         json.put("listOfValues", listOfValues);
         json.put("newListOfValues", newListOfValues);
         json.put("stringValues", stringValues);

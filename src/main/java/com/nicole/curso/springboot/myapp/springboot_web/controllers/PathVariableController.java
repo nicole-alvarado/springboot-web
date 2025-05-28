@@ -31,8 +31,8 @@ public class PathVariableController {
     @Value("${config.listOfValues}")
     private String[] listOfValues;
     
-    @Value("${config.message}")
-    private String message;
+    // @Value("${config.message}")
+    // private String message;
 
     @GetMapping("/baz/{message}") // Ruta variable, el nombre message en la ruta y parámetros si o si es obligatorio que sean iguales
     public ParamDTO getBaz(@PathVariable String message){
@@ -57,8 +57,9 @@ public class PathVariableController {
         return user;
     }
 
+    // Los value se pueden agregar como argumentos
     @GetMapping("/values")
-    public Map<String, Object> values(){
+    public Map<String, Object> values(@Value("${config.message}") String message){
         Map<String, Object> json = new HashMap<>();
         json.put("username", username);
         json.put("code", code);

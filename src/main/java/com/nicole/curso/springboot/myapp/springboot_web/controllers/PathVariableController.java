@@ -1,6 +1,7 @@
 package com.nicole.curso.springboot.myapp.springboot_web.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -29,10 +30,16 @@ public class PathVariableController {
     private Integer code;
     
     @Value("${config.listOfValues}")
-    private String[] listOfValues;
+    private List<String> listOfValues;
     
     // @Value("${config.message}")
     // private String message;
+
+    @Value("#{'${config.listOfValues}'.toUpperCase().split(',')}")
+    private List<String> newListOfValues;
+
+    @Value("#{'${config.listOfValues}'.toUpperCase()}")
+    private String stringValues;
 
     @GetMapping("/baz/{message}") // Ruta variable, el nombre message en la ruta y parámetros si o si es obligatorio que sean iguales
     public ParamDTO getBaz(@PathVariable String message){
@@ -65,6 +72,8 @@ public class PathVariableController {
         json.put("code", code);
         json.put("message", message);
         json.put("listOfValues", listOfValues);
+        json.put("newListOfValues", newListOfValues);
+        json.put("stringValues", stringValues);
         return json;
     }
     

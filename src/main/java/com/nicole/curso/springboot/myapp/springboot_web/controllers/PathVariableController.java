@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nicole.curso.springboot.myapp.springboot_web.models.User;
 import com.nicole.curso.springboot.myapp.springboot_web.models.dto.ParamDTO;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 // Si trabajamos con API Rest la idea es mandar parámetros en la ruta
@@ -30,6 +34,14 @@ public class PathVariableController {
         json.put("product", product);
         json.put("id", id);
         return json;
+    }
+    
+    @PostMapping("/create")
+    public User create(@RequestBody User user) {
+        //TODO: Hacer algo con el usuario, por ejemplo guardarlo en la BD
+        user.setName(user.getName().toUpperCase());
+        
+        return user;
     }
     
 }
